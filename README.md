@@ -1,1 +1,32 @@
-# bitcamp-study
+# AWS EC2 서버 구축해보기
+
+  - AMI 리눅스 인스턴스 생성
+  - 패키지 매니저의 정보 갱신: `sudo yum update`
+  - Amazon JDK 설치: `sudo yum install java-11-amazon-corretto-headless`
+  - JDK 설치 폴더 알아내기: `readlink -f /usr/bin/java`
+    - 실행 결과: `/usr/lib/jvm/java-11-amazon-corretto.x86_64/bin/java`
+  - JAVA_HOME 환경 변수 설정: `nano .bash_profile`
+    - 맨 끝에 추가: `export JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto.x86_64`
+    - 저장 및 nano 종료
+    - 변경된 환경 설정 적용: `source .bash_profile`
+    - 환경 변수 설정 확인: `echo $JAVA_HOME`
+  - GIT 클라이언트 설치: `sudo yum install git`
+    - 설치 확인: `git --version`
+  - bitcamp-study 저장소 복사해오기
+    - 저장소를 둘 폴더 생성: `mkdir git`
+    - git 폴더로 이동: `cd git`
+    - 본인 저장소 복제: `git clone https://github.com/본인아이디/bitcamp-study.git`
+  - app-server 빌드
+    - 프로젝트 폴더로 이동: `cd ~/git/bitcamp-study/project-app1`
+    - gradlew 파일에 실행 권한 부여: `chmod 764 ./gradlew`
+    - 빌드하기: `./gradlew build`
+  - app-server 실행
+    - ServerApp 클래스 실행: `java -Dfile.encoding=UTF-8 -cp ./app-server/build/classes/java/main com.eomcs.app1.ServerApp`
+  - 인바운드 포트 8888 열기
+    - ec2 > 인스턴스 > 서버아이디 > 보안탭 > [보안그룹] 클릭
+    - [인바운드 규칙 편집] 클릭
+    - [규칙추가] 클릭
+    - 유형(사용자지정TCP), 포트 범위(8888), CIDR 블록(0.0.0.0/0) 설정
+    - [규칙저장] 클릭
+  - 클라이언트 접속 테스트
+    - 서버 주소를 ec2 public IP로 설정한 다음에 실행한다.
