@@ -1,4 +1,5 @@
 # AWS EC2 서버 구축해보기
+AWS EC2 서버 구축
 
   - AMI 리눅스 인스턴스 생성
   - 패키지 매니저의 정보 갱신: `sudo yum update`
