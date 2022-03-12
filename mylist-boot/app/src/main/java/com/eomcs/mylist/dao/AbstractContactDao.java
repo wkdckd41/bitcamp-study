@@ -5,7 +5,7 @@ import com.eomcs.mylist.domain.Contact;
 
 public abstract class AbstractContactDao implements ContactDao {
 
-  protected ArrayList<Contact> contactList = new ArrayList<Contact>(); 
+  protected ArrayList<Contact> contactList = new ArrayList<>(); 
 
   protected abstract void save() throws Exception;
 

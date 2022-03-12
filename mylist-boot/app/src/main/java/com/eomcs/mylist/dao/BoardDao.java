@@ -1,5 +1,6 @@
 package com.eomcs.mylist.dao;
 
+import java.util.List;
 import com.eomcs.mylist.domain.Board;
 
 public interface BoardDao {
@@ -10,7 +11,7 @@ public interface BoardDao {
 
   int countAll();
 
-  Object[] findAll();
+  List<Board> findAll();
 
   void insert(Board board) throws Exception;
 
