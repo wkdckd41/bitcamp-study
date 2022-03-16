@@ -6,7 +6,7 @@
   <style>
   /* 스타일 적용 순서
     => specificity 값?
-       => 셀렉터의 우선 순위를 지정하기 위해 부여된 값
+       => 실렉터의 우선 순위를 지정하기 위해 부여된 값
        => 한 태그에 같은 스타일이 중복 지정된 경우?
           specificity 값을 계산하여 값이 높은 스타일이 적용된다.
           스타일을 선언한 순서 보다 계산 값이 우선한다.
@@ -20,27 +20,27 @@
 
 /* = 0 */
 
-  * { 
-    border: 1px solid black;
-    background-color: gray;
-    margin: 20px;
-  }
+* { 
+  border: 1px solid black;
+  background-color: gray;
+  margin: 20px;
+}
 
-  body {
-    font-size: 30px;
-    background-color: blue;
-  }
+
+body {
+  font-size: 30px;
+  background-color: blue;
+}
 
 /* = 1 */
-  div { 
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-  }
+div { 
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
 
 /* = 1 */
 /* 같은 점수일 때 나중에 지정된 스타일이 기존 스타일을 덮어쓴다 */
-
 div { 
   width: 200px; 
   background-color: green;
@@ -72,7 +72,7 @@ div#d3 {
   </style>
 </head>
 <body>
-
+body
 <div>d0</div>
 <div class="c1">d1</div>
 <div class="c1" id="d2" style="background-color: yellow;">d2</div>
