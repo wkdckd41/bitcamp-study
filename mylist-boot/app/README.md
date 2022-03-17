@@ -99,11 +99,11 @@ alter table ml_contact
 - com.eomcs.mylist.domain.Contact 클래스 변경
   - primary key 값을 저장할 no 필드를 추가한다.
 
-- com.eomcs.mylist.dao.BookDao 인터페이스 변경
+- com.eomcs.mylist.dao.ContactDao 인터페이스 변경
   - 메서드의 파라미터 및 리턴 타입 변경
   - Mybatis 설정 추가
 
-- com.eomcs.mylist.controller.BookController 클래스 변경
+- com.eomcs.mylist.controller.ContactController 클래스 변경
   - 메서드 파라미터 및 DAO 호출 코드 변경
 
 

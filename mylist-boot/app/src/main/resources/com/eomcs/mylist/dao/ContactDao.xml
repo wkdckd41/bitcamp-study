@@ -22,7 +22,7 @@
       contact_no,
       name,
       tel,
-      email
+      email,
       company
     from 
       ml_contact 
@@ -47,8 +47,8 @@
     where 
       contact_no=#{no}
   </select>
-  
-    <select id="findByEmail" resultMap="contactMap" parameterType="string">
+
+  <select id="findByEmail" resultMap="contactMap" parameterType="string">
     select 
       contact_no,
       name,
@@ -60,8 +60,8 @@
     where 
       email=#{email}
   </select>
-  
-      <select id="findByName" resultMap="contactMap" parameterType="string">
+
+  <select id="findByName" resultMap="contactMap" parameterType="string">
     select 
       contact_no,
       name,
@@ -73,7 +73,7 @@
     where 
       name=#{name}
   </select>
-
+  
   <update id="update" parameterType="contact">
     update ml_contact set 
       name=#{name}, 

@@ -23,7 +23,6 @@ public class ContactController {
     return contactDao.countAll();
   }
 
-
   @RequestMapping("/contact/get")
   public Object get(int no) {
     Contact contact = contactDao.findByNo(no);
