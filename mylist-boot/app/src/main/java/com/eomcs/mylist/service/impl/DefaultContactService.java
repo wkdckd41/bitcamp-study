@@ -15,6 +15,7 @@ public class DefaultContactService implements ContactService {
   @Autowired
   ContactDao contactDao;
 
+  @Override
   @Transactional // 다음 메서드는 트랜잭션 안에서 실행하도록 설정한다.
   public int add(Contact contact) {
     contactDao.insert(contact);
@@ -25,22 +26,17 @@ public class DefaultContactService implements ContactService {
     return 1;
   }
 
+  @Override
   public List<Contact> list() {
-    List<Contact> contacts = contactDao.findAll();
-    for (Contact contact : contacts) {
-      contact.setTels(contactDao.findTelByContactNo(contact.getNo()));
-    }
-    return contacts;
+    return contactDao.findAll();
   }
 
+  @Override
   public Contact get(int no) {
-    Contact contact = contactDao.findByNo(no);
-    if (contact != null) {
-      contact.setTels(contactDao.findTelByContactNo(no));
-    }
-    return contact;
+    return contactDao.findByNo(no);
   }
 
+  @Override
   @Transactional
   public int update(Contact contact) {
     int count = contactDao.update(contact);
@@ -53,6 +49,7 @@ public class DefaultContactService implements ContactService {
     return count;
   }
 
+  @Override
   @Transactional
   public int delete(int no) {
     contactDao.deleteTelByContactNo(no);
